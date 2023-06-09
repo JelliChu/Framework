@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+
+    <FontFamily x:Key="Quicksand">ms-appx:///Styles/Fonts/Quicksand/Quicksand-Regular.ttf#Quicksand</FontFamily>
+    <FontFamily x:Key="FontAwesome">ms-appx:///Styles/Fonts/FontAwesome/Font Awesome 6 Free Regular.otf#Font Awesome 6 Free</FontFamily>
+    <FontFamily x:Key="FontAwesomeSolid">ms-appx:///Styles/Fonts/FontAwesome/Font Awesome 6 Free Solid.otf#Font Awesome 6 Free Solid</FontFamily>
+    <FontFamily x:Key="WeatherIcons">ms-appx:///Styles/Fonts/WeatherIcons/Weather Icons.ttf#Weather Icons</FontFamily>
+
+</ResourceDictionary>

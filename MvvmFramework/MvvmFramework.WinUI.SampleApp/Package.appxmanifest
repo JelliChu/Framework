@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+	xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+	xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+	xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+	IgnorableNamespaces="uap rescap com desktop"
+	>
+
+	<Identity
+		Name="06244b10-f82e-464a-bc99-d1c7ccc10ded"
+		Publisher="CN=JellyChu"
+		Version="1.0.0.0"
+		/>
+
+	<Properties>
+		<DisplayName>MvvmFramework.WinUI.SampleApp</DisplayName>
+		<PublisherDisplayName>JellyChu</PublisherDisplayName>
+		<Logo>Assets\StoreLogo.png</Logo>
+	</Properties>
+
+	<Dependencies>
+		<TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+		<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+	</Dependencies>
+
+	<Resources>
+		<Resource Language="x-generate" />
+	</Resources>
+
+	<Applications>
+		<Application
+			Id="App"
+			Executable="$targetnametoken$.exe"
+			EntryPoint="$targetentrypoint$"
+			>
+			<uap:VisualElements
+				DisplayName="MvvmFramework.WinUI.SampleApp"
+				Description="MvvmFramework.WinUI.SampleApp"
+				BackgroundColor="transparent"
+				Square150x150Logo="Assets\Square150x150Logo.png"
+				Square44x44Logo="Assets\Square44x44Logo.png"
+				>
+				<uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+				<uap:SplashScreen Image="Assets\SplashScreen.png" />
+			</uap:VisualElements>
+
+			<Extensions>
+				<!--Specify which CLSID to activate when toast clicked-->
+				<desktop:Extension Category="windows.toastNotificationActivation">
+					<desktop:ToastNotificationActivation ToastActivatorCLSID="AF0223AB-B776-4A67-A79F-824247B9C477" />
+				</desktop:Extension>
+
+				<!--Register COM CLSID LocalServer32 registry key-->
+				<com:Extension Category="windows.comServer">
+					<com:ComServer>
+						<com:ExeServer Executable="MvvmFramework.WinUI.SampleApp.exe" Arguments="-ToastActivated" DisplayName="Toast activator">
+							<com:Class Id="AF0223AB-B776-4A67-A79F-824247B9C477" DisplayName="Toast activator"/>
+						</com:ExeServer>
+					</com:ComServer>
+				</com:Extension>
+			</Extensions>
+		</Application>
+	</Applications>
+
+	<Capabilities>
+		<rescap:Capability Name="runFullTrust" />
+	</Capabilities>
+</Package>

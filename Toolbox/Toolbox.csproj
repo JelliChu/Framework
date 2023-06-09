@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Win32\ContextMenuHelper.cs" />
+		<Compile Remove="Win32\GetMenuStateFlag.cs" />
+		<Compile Remove="Win32\MenuItemFlags.cs" />
+		<Compile Remove="Win32\MenuItemState.cs" />
+		<Compile Remove="Win32\WindowLongIndexFlag.cs" />
+		<Compile Remove="Win32\WindowMessage.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="PInvoke.Win32" Version="0.7.124" />
+		<PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MvvmFramework.WinUI"
+    >
+
+    <local:DebugConverter x:Key="DebugConverter" />
+    <local:NullVisibilityConverter x:Key="NullVisibilityConverter" />
+    <local:NullOpacityConverter x:Key="NullOpacityConverter" />
+    <local:BoolVisibilityConverter x:Key="BoolVisibilityConverter" />
+    <local:BoolVisibilityConverter
+        x:Key="InvertedBoolVisibilityConverter"
+        IsTrue="Collapsed"
+        IsFalse="Visible"
+        />
+    <local:BoolOpacityConverter x:Key="BoolOpacityConverter" />
+    <local:BoolOpacityConverter
+        x:Key="InvertedBoolOpacityConverter"
+        IsTrue="0"
+        IsFalse="1"
+        />
+    <local:BoolInverter x:Key="BoolInverter" />
+    <local:StringFormatConverter x:Key="StringFormatConverter" />
+    <local:BytesToImageConverter x:Key="BytesToImageConverter" />
+
+</ResourceDictionary>

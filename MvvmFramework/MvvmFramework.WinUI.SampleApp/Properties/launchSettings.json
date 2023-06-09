@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MvvmFramework.WinUI.SampleApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "MvvmFramework.WinUI.SampleApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
