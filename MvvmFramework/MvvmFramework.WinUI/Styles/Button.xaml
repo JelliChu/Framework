@@ -48,7 +48,7 @@
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
 
-                                <VisualState x:Name="PointerOver">
+                                <!--<VisualState x:Name="PointerOver">
 
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames
@@ -80,7 +80,9 @@
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                     <VisualState.Setters>
-                                        <Setter Value="PointerOver" Target="ContentPresenter.(controls:AnimatedIcon.State)" />
+                                -->
+                                <!--<Setter Value="PointerOver" Target="ContentPresenter.(controls:AnimatedIcon.State)" />-->
+                                <!--
 
                                     </VisualState.Setters>
                                 </VisualState>
@@ -117,10 +119,12 @@
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                     <VisualState.Setters>
-                                        <Setter Value="Pressed" Target="ContentPresenter.(controls:AnimatedIcon.State)" />
+                                -->
+                                <!--<Setter Value="Pressed" Target="ContentPresenter.(controls:AnimatedIcon.State)" />-->
+                                <!--
 
                                     </VisualState.Setters>
-                                </VisualState>
+                                </VisualState>-->
 
                                 <VisualState x:Name="Disabled">
 
@@ -155,7 +159,7 @@
                                     </Storyboard>
                                     <VisualState.Setters>
                                         <!-- DisabledVisual Should be handled by the control, not the animated icon. -->
-                                        <Setter Value="Normal" Target="ContentPresenter.(controls:AnimatedIcon.State)" />
+                                        <!--<Setter Value="Normal" Target="ContentPresenter.(controls:AnimatedIcon.State)" />-->
 
                                     </VisualState.Setters>
                                 </VisualState>
@@ -241,7 +245,7 @@
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                     <VisualState.Setters>
-                                        <Setter Value="PointerOver" Target="Content.(controls:AnimatedIcon.State)" />
+                                        <!--<Setter Value="PointerOver" Target="Content.(controls:AnimatedIcon.State)" />-->
 
                                     </VisualState.Setters>
                                 </VisualState>
@@ -269,7 +273,7 @@
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                     <VisualState.Setters>
-                                        <Setter Value="Pressed" Target="Content.(controls:AnimatedIcon.State)" />
+                                        <!--<Setter Value="Pressed" Target="Content.(controls:AnimatedIcon.State)" />-->
 
                                     </VisualState.Setters>
                                 </VisualState>
