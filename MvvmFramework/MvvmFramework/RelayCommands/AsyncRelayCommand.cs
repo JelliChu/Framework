@@ -10,7 +10,7 @@ public class AsyncRelayCommand : BaseCommand
 		_execute = execute;
 	}
 
-	public override void Execute() => ExecuteAsync().ConfigureAwait(false);
+	public override void Execute() => AsyncHelpers.RunSync(ExecuteAsync);
 
 	public async Task ExecuteAsync()
 	{
@@ -39,7 +39,7 @@ public class AsyncRelayCommand<TParameter> : BaseCommand<TParameter>
 
     public AsyncRelayCommand(Func<TParameter, Task> execute) => _execute = execute;
 
-    public override void Execute(TParameter parameter) => ExecuteAsync(parameter).ConfigureAwait(false);
+    public override void Execute(TParameter parameter) => AsyncHelpers.RunSync(() => ExecuteAsync(parameter));
 
     public async Task ExecuteAsync(TParameter parameter)
     {

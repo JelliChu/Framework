@@ -12,23 +12,23 @@ namespace MvvmFramework.WinUI;
 
 public static class WindowExtensions
 {
-	public static IntPtr GetWindowHandle(this Window window)
-	{
-		return WindowNative.GetWindowHandle(window);
-	}
+    public static IntPtr GetWindowHandle(this Window window)
+    {
+        return WindowNative.GetWindowHandle(window);
+    }
 
-	public static AppWindow GetAppWindow(this Window window)
-	{
-		var windowHandle = WindowNative.GetWindowHandle(window);
-		var windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
-		return AppWindow.GetFromWindowId(windowId);
-	}
+    public static AppWindow GetAppWindow(this Window window)
+    {
+        var windowHandle = WindowNative.GetWindowHandle(window);
+        var windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
+        return AppWindow.GetFromWindowId(windowId);
+    }
 
-	public static ApplicationTheme GetRootTheme(this Window window)
-	{
-		if(window.Content is FrameworkElement element)
-		{
-			return element.RequestedTheme switch
+    public static ApplicationTheme GetRootTheme(this Window window)
+    {
+        if(window.Content is FrameworkElement element)
+        {
+            return element.RequestedTheme switch
             {
                 ElementTheme.Default => ApplicationTheme.Light,
                 ElementTheme.Light => ApplicationTheme.Light,
@@ -36,18 +36,18 @@ public static class WindowExtensions
                 _ => throw new NotImplementedException(),
             };
 
-			//return (ApplicationTheme)((int)element.RequestedTheme - 1);
-		}
+            //return (ApplicationTheme)((int)element.RequestedTheme - 1);
+        }
 
-		return default;
-	}
+        return default;
+    }
 
-	public static void SetRootTheme(this Window window, ApplicationTheme theme)
-	{
-		// TODO: Change colour of system buttons
+    public static void SetRootTheme(this Window window, ApplicationTheme theme)
+    {
+        // TODO: Change colour of system buttons
 
-		if(window.Content is FrameworkElement element)
-		{
+        if(window.Content is FrameworkElement element)
+        {
             element.RequestedTheme = theme switch
             {
                 ApplicationTheme.Light => ElementTheme.Light,
@@ -59,44 +59,44 @@ public static class WindowExtensions
         }
     }
 
-	public static void RestoreLastWindowSize(this Window window)
-	{
-		var localSettings = ApplicationData.Current.LocalSettings;
+    public static void RestoreLastWindowSize(this Window window)
+    {
+        var localSettings = ApplicationData.Current.LocalSettings;
 
-		var bounds = (Rect?)localSettings.Values[$"{window.Title}_WindowBounds"];
-		if(bounds is not null)
-		{
-			window.GetAppWindow().MoveAndResize(new Windows.Graphics.RectInt32
-			{
-				X = (int)bounds.Value.X,
-				Y = (int)bounds.Value.Y,
-				Width = (int)bounds.Value.Width,
-				Height = (int)bounds.Value.Height,
-			});
-		}
+        var bounds = (Rect?)localSettings.Values[$"{window.Title}_WindowBounds"];
+        if(bounds is not null)
+        {
+            window.GetAppWindow().MoveAndResize(new Windows.Graphics.RectInt32
+            {
+                X = (int)bounds.Value.X,
+                Y = (int)bounds.Value.Y,
+                Width = (int)bounds.Value.Width,
+                Height = (int)bounds.Value.Height,
+            });
+        }
 
-		window.Closed += Window_Closed;
-	}
+        window.Closed += Window_Closed;
+    }
 
-	private static void Window_Closed(object sender, WindowEventArgs args)
-	{
-		var window = (Window)sender;
-		var localSettings = ApplicationData.Current.LocalSettings;
+    private static void Window_Closed(object sender, WindowEventArgs args)
+    {
+        var window = (Window)sender;
+        var localSettings = ApplicationData.Current.LocalSettings;
 
-		var position = window.GetAppWindow().Position;
+        var position = window.GetAppWindow().Position;
 
-		var bounds = new Rect
-		{
-			X = position.X,
-			Y = position.Y,
-			Width = window.Bounds.Width,
-			Height = window.Bounds.Height,
-		};
+        var bounds = new Rect
+        {
+            X = position.X,
+            Y = position.Y,
+            Width = window.Bounds.Width,
+            Height = window.Bounds.Height,
+        };
 
-		localSettings.Values[$"{window.Title}_WindowBounds"] = bounds;
+        localSettings.Values[$"{window.Title}_WindowBounds"] = bounds;
 
-		window.Closed -= Window_Closed;
-	}
+        window.Closed -= Window_Closed;
+    }
 
     public static void Activate(this Window window, bool showInTaskbar = true)
     {

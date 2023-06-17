@@ -11,14 +11,26 @@ public class NavigationService : INavigationService
 		_frame = frame;
 	}
 
-	public void GoBack()
+	public bool GoBack()
 	{
-		_frame.GoBack();
+		if(!_frame.CanGoBack)
+        {
+            return false;
+        }
+
+        _frame.GoBack();
+		return true;
 	}
 
-	public void GoForward()
+	public bool GoForward()
 	{
+		if(!_frame.CanGoForward)
+		{
+			return false;
+		}
+
 		_frame.GoForward();
+		return true;
 	}
 
 	public bool Navigate<T>(object? parameter = default, NavigationOptions? navigationOptions = default)
