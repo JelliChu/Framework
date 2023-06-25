@@ -15,9 +15,4 @@ public static class Storage
 			return Path.Combine(new string[] { "" }.Concat(paths).ToArray());
 		}
 	}
-
-    public static string GetDataPath(params string[] paths)
-    {
-		return FromRootPath(new string[] { "Data" }.Concat(paths).ToArray());
-    }
 }

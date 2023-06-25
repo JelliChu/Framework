@@ -2,7 +2,7 @@
 
 namespace MvvmFramework;
 
-public class AppStateDataAccess
+public class AppStateDataAccess : IAppStateDataAccess
 {
     private readonly string _path;
 

@@ -2,7 +2,6 @@
 
 public abstract class ViewModel : ObservableObject
 {
-    public virtual async Task Initialise() { }
     public virtual async Task Validate() { }
 
     // Suspend/Resume
